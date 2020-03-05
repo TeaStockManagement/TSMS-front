@@ -1,0 +1,11 @@
+div a:hover{
+    color: #D3D1D0;
+    text-decoration: none;
+}
+
+mat-toolbar{
+    height: 50px;
+    color: white;
+    background-color: #0E35A6 ;
+}
+
