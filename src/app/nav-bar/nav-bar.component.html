@@ -1,0 +1,13 @@
+<mat-toolbar >
+    <mat-toolbar-row>
+      <h1 style="margin-right: 50px;">NavBar</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button [routerLink]="'/events'"> Events </a>
+        <a mat-button [routerLink]="'/creat-event'"> Create Event </a>
+        <a mat-button [routerLink]="'/activities'"> Activities </a>
+        <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
+        <button style="margin-left: 700px;" type="submit" (click)="onLogout()" class="btn btn-primary"><mat-icon>input</mat-icon></button>
+      </div>
+    </mat-toolbar-row>
+</mat-toolbar>
