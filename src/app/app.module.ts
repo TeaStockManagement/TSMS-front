@@ -23,6 +23,7 @@ import { HomeComponent } from './home/home.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { RegisterComponent } from './register/register.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    NavBarComponent
+    NavBarComponent,
+    SupplerOrderAddComponent
   ],
   imports: [
     BrowserModule,
