@@ -24,6 +24,10 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { RegisterComponent } from './register/register.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.component';
+import { SupplerorderService } from './_services/supplerorder.service';
+import { PackageComponent } from './package/package.component';
+import { MetirialComponent } from './metirial/metirial.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +36,9 @@ import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.
     HomeComponent,
     RegisterComponent,
     NavBarComponent,
-    SupplerOrderAddComponent
+    SupplerOrderAddComponent,
+    PackageComponent,
+    MetirialComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,8 @@ import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.
     MatDatepickerModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    SupplerorderService
   ],
   bootstrap: [AppComponent]
 })

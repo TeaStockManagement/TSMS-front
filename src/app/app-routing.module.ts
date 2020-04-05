@@ -8,6 +8,9 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_helpers/auth.guard';
 
 import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.component'
+import{ PackageComponent } from './package/package.component';
+import { MetirialComponent } from './metirial/metirial.component';
+
 
 const routes: Routes = [
   {
@@ -19,16 +22,27 @@ const routes: Routes = [
     path:'',
     component: LoginComponent
   },
+  {
+    path:'register',
+    component: RegisterComponent
+  },
   { 
     path:'addsupplerorder',
     component:SupplerOrderAddComponent,
     canActivate:[AuthGuard]
   },
-  {
-    path:'register',
-    component: RegisterComponent
+  { 
+    path:'app-metirial',
+    component:MetirialComponent,
+    canActivate:[AuthGuard]
   },
-  { path: '**', redirectTo: ''},
+  { 
+    path:'app-package',
+    component:PackageComponent,
+    canActivate:[AuthGuard]
+  },
+
+  { path: '**', redirectTo: ''}
   
   
 ];
