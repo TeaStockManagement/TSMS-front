@@ -27,7 +27,8 @@ import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.
 import { SupplerorderService } from './_services/supplerorder.service';
 import { PackageComponent } from './package/package.component';
 import { MetirialComponent } from './metirial/metirial.component';
-
+import { TeaQualityComponent } from './tea-quality/tea-quality.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MetirialComponent } from './metirial/metirial.component';
     NavBarComponent,
     SupplerOrderAddComponent,
     PackageComponent,
-    MetirialComponent
+    MetirialComponent,
+    TeaQualityComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,10 @@ import { MetirialComponent } from './metirial/metirial.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    FlashMessagesModule.forRoot(),
+
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

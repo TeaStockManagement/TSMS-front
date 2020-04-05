@@ -28,6 +28,12 @@ export class SupplerorderService {
       this.fetchToken();
    }
 
+  addTeaQualityDB(teaquality){
+    
+    return this.http.post(`${this.apiUri}/TeaQuality/addteaquality`,teaquality);
+
+  }
+    
 
 
 }

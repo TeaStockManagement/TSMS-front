@@ -23,7 +23,7 @@ export class MetirialComponent implements OnInit {
       metirialadd:this.metirialadd
     }
    
-   this.supplerorderservice.addMetirialDB(metirialobj);
+   this.supplerorderservice.addMetirialDB(metirialobj).subscribe();
   }
 
 }
