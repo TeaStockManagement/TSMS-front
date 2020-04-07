@@ -9,6 +9,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class TeaQualityComponent implements OnInit {
 
+  details:any;
   qualityadd:string;
   constructor( 
         public supplerorder:SupplerorderService,
@@ -17,6 +18,20 @@ export class TeaQualityComponent implements OnInit {
         ) { }
 
   ngOnInit(): void {
+
+    this.supplerorder.getqualitydetails().subscribe(
+      data=>{
+        this.details=data['result'];
+        console.log(this.details);
+      }
+    
+    );
+
+
+  }
+
+  onUpdate(id){
+    console.log(id);
 
   }
 
@@ -40,3 +55,5 @@ export class TeaQualityComponent implements OnInit {
   }
 
 }
+
+

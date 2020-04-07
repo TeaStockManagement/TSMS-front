@@ -22,11 +22,29 @@
 
       <br>
       <br>
-      <div class="row">
-        <div class="col-sm">ID</div>
-        <div class="col-sm">Quality Types</div>
-        <div class="col-sm">Update</div>
-        <div class="col-sm">Delete</div>
-      </div>
+     
+
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Quality Types</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detail of details;let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{detail.quality}}</td>
+            <td><button type="button" class="btn btn-warning" (click)="onUpdate(detail._id)">Update</button></td>
+            <td><button type="button" class="btn btn-danger">Delete</button></td>
+          </tr>
+     
+      
+        </tbody>
+      </table>
+      
 
 </div>

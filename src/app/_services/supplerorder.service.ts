@@ -33,6 +33,10 @@ export class SupplerorderService {
     return this.http.post(`${this.apiUri}/TeaQuality/addteaquality`,teaquality);
 
   }
+
+  getqualitydetails(){
+    return this.http.get(`${this.apiUri}/TeaQuality/allteaquality`);
+  }
     
 
 
