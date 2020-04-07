@@ -38,6 +38,9 @@ export class SupplerorderService {
     return this.http.get(`${this.apiUri}/TeaQuality/allteaquality`);
   }
     
-
+  addItemDB(item){
+   
+    return this.http.post(`${this.apiUri}/Item/additem`,item);
+  }
 
 }
