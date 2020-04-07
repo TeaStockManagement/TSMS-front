@@ -26,6 +26,13 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { RegisterComponent } from './register/register.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RepHomeComponent } from './rep-home/rep-home.component';
+import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.component';
+import { SupplerorderService } from './_services/supplerorder.service';
+import { PackageComponent } from './package/package.component';
+import { MetirialComponent } from './metirial/metirial.component';
+import { TeaQualityComponent } from './tea-quality/tea-quality.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { SupplerItemAddComponent } from './suppler-item-add/suppler-item-add.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +41,12 @@ import { RepHomeComponent } from './rep-home/rep-home.component';
     HomeComponent,
     RegisterComponent,
     NavBarComponent,
-    RepHomeComponent
+    RepHomeComponent,
+    SupplerOrderAddComponent,
+    PackageComponent,
+    MetirialComponent,
+    TeaQualityComponent,
+    SupplerItemAddComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +66,9 @@ import { RepHomeComponent } from './rep-home/rep-home.component';
     MatListModule,
     MatTabsModule,
     MatDatepickerModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    MatDatepickerModule,
+    FlashMessagesModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
