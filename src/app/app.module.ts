@@ -25,7 +25,9 @@ import { HomeComponent } from './home/home.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { RegisterComponent } from './register/register.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+
 import { RepHomeComponent } from './rep-home/rep-home.component';
+
 import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.component';
 import { SupplerorderService } from './_services/supplerorder.service';
 import { PackageComponent } from './package/package.component';
@@ -41,6 +43,7 @@ import { SupplerItemAddComponent } from './suppler-item-add/suppler-item-add.com
     HomeComponent,
     RegisterComponent,
     NavBarComponent,
+
     RepHomeComponent,
     SupplerOrderAddComponent,
     PackageComponent,
@@ -68,10 +71,11 @@ import { SupplerItemAddComponent } from './suppler-item-add/suppler-item-add.com
     MatDatepickerModule,
     TabsModule.forRoot(),
     MatDatepickerModule,
-    FlashMessagesModule.forRoot(),
+    FlashMessagesModule.forRoot()
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    SupplerorderService
   ],
   bootstrap: [AppComponent]
 })
