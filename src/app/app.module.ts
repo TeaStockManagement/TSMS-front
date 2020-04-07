@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
+import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ButtonsModule } from 'ngx-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {MatInputModule} from '@angular/material/input';
@@ -13,6 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +25,7 @@ import { HomeComponent } from './home/home.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { RegisterComponent } from './register/register.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { RepHomeComponent } from './rep-home/rep-home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    NavBarComponent
+    NavBarComponent,
+    RepHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatDatepickerModule
+    MatTabsModule,
+    MatDatepickerModule,
+    TabsModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

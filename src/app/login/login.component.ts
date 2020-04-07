@@ -35,8 +35,18 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.f.username.value, this.f.password.value)
         .subscribe(
             data => {
-                console.log(data);
-                this.router.navigateByUrl(`/home`);
+              console.log(data);
+              if(data['data'].status=="active"){
+                console.log("Activated");
+                if(data['data'].role=="medRep"){
+                  console.log("medRep");
+                  this.router.navigateByUrl(`/rep-home`);
+                }
+              }
+              if(data['data'].status=="Inactive"){
+                console.log("Not Activated");
+                this.router.navigateByUrl(`/login`);
+              }
             },
             error => {
                 console.log(error);
