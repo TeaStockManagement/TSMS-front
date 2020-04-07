@@ -1,0 +1,59 @@
+<div style="margin: 0px 150px 0px 150px;">
+     <tabset>
+          <button style="margin: 20px 0px 0px 1000px;" type="submit" (click)="logOut()" class="btn btn-secondary btn-sm">
+               <mat-icon>input</mat-icon>
+          </button>
+          <tab heading="Add Order" id="tab1">
+               <div style="width: 60%;" class="text-center">
+                    <h3 class="mb-5">Add Order Details</h3>
+                    <form [formGroup]="addShopForm" (ngSubmit)="addShop()">
+                         <div class="form-group row">
+                              <label for="colFormLabel" class="col-sm-2 col-form-label">Shop</label>
+                              <div class="col-sm-10">
+                                   <select class="form-control" id="exampleFormControlSelect1">
+                                        <option *ngFor="let shop of shops">{{shop.name}}</option>
+                                   </select>
+                              </div>
+                         </div>
+                         <div class="form-group row">
+                              <label for="colFormLabel" class="col-sm-2 col-form-label">Date</label>
+                              <div class="col-sm-10">
+                                   <input type="text"
+                                   class="form-control"
+                                   bsDatepicker>
+                              </div>
+                         </div>
+                         <button type="submit" class="btn btn-primary">
+                         Submit</button>
+                    </form>
+               </div>
+          </tab>
+          <tab heading="Add Shop">
+               <div style="width: 60%;" class="text-center">
+                    <h3 class="mb-5">Add Shop Details</h3>
+                    <form [formGroup]="addShopForm" (ngSubmit)="addShop()">
+                         <div class="form-group row">
+                              <label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
+                              <div class="col-sm-10">
+                                   <input type="email" class="form-control" id="colFormLabel" formControlName="name">
+                              </div>
+                         </div>
+                         <div class="form-group row">
+                              <label for="colFormLabel" class="col-sm-2 col-form-label">Address</label>
+                              <div class="col-sm-10">
+                                   <input type="email" class="form-control" id="colFormLabel" formControlName="address">
+                              </div>
+                         </div>
+                         <div class="form-group row">
+                              <label for="colFormLabel" class="col-sm-2 col-form-label">Mobile Number</label>
+                              <div class="col-sm-10">
+                                   <input type="email" class="form-control" id="colFormLabel" formControlName="mobile">
+                              </div>
+                         </div>
+                         <button type="submit" class="btn btn-primary">
+                         Submit</button>
+                    </form>
+               </div>
+          </tab>
+     </tabset>
+</div>

@@ -4,14 +4,16 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  
+export class RepService {
+
   apiUri='http://localhost:3000';
   constructor(private http: HttpClient) { }
 
-  registerUser(user){
-    return this.http.post(`${this.apiUri}/users/register`,user);
+  allShops(){
+    return this.http.get(`${this.apiUri}/shops/all`);
   }
-  registerEvent(){
+  
+  registerShop(shop){
+    return this.http.post(`${this.apiUri}/shops/add`,shop);
   }
 }
