@@ -1,0 +1,23 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <br><br>
+
+    <form [formGroup]="addorder" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="name">Package </label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+
+
+        <select formControlName="name">
+          <option disabled>Select Payment Type</option>
+          <option>Choose Payment Type</option>
+          <option *ngFor="let suit of paymenttype">{{suit}}</option>
+        </select>
+
+
+       <br>
+        <button>Submit</button>
+      </form> 
+</div>

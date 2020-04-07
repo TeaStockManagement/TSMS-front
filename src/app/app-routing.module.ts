@@ -4,7 +4,14 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+
 import { AuthGuard } from './_helpers/auth.guard';
+
+import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.component'
+import{ PackageComponent } from './package/package.component';
+import { MetirialComponent } from './metirial/metirial.component';
+import { TeaQualityComponent } from './tea-quality/tea-quality.component'
+
 
 const routes: Routes = [
   {
@@ -20,7 +27,30 @@ const routes: Routes = [
     path:'register',
     component: RegisterComponent
   },
+  { 
+    path:'addsupplerorder',
+    component:SupplerOrderAddComponent,
+    canActivate:[AuthGuard]
+  },
+  { 
+    path:'app-metirial',
+    component:MetirialComponent,
+    canActivate:[AuthGuard]
+  },
+  { 
+    path:'app-package',
+    component:PackageComponent,
+    canActivate:[AuthGuard]
+  },
+  { 
+    path:'app-tea-quality',
+    component:TeaQualityComponent,
+    canActivate:[AuthGuard]
+  },
+
   { path: '**', redirectTo: ''}
+  
+  
 ];
 
 @NgModule({

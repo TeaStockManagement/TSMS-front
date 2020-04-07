@@ -23,6 +23,12 @@ import { HomeComponent } from './home/home.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { RegisterComponent } from './register/register.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.component';
+import { SupplerorderService } from './_services/supplerorder.service';
+import { PackageComponent } from './package/package.component';
+import { MetirialComponent } from './metirial/metirial.component';
+import { TeaQualityComponent } from './tea-quality/tea-quality.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    NavBarComponent
+    NavBarComponent,
+    SupplerOrderAddComponent,
+    PackageComponent,
+    MetirialComponent,
+    TeaQualityComponent
   ],
   imports: [
     BrowserModule,
@@ -48,10 +58,14 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    FlashMessagesModule.forRoot(),
+
+
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    SupplerorderService
   ],
   bootstrap: [AppComponent]
 })
