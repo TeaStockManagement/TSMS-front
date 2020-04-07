@@ -29,6 +29,7 @@ import { PackageComponent } from './package/package.component';
 import { MetirialComponent } from './metirial/metirial.component';
 import { TeaQualityComponent } from './tea-quality/tea-quality.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { SupplerItemAddComponent } from './suppler-item-add/suppler-item-add.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
     SupplerOrderAddComponent,
     PackageComponent,
     MetirialComponent,
-    TeaQualityComponent
+    TeaQualityComponent,
+    SupplerItemAddComponent
   ],
   imports: [
     BrowserModule,

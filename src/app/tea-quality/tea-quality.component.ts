@@ -42,6 +42,7 @@ export class TeaQualityComponent implements OnInit {
     qualityadd:this.qualityadd
 
     }
+    
     this.supplerorder.addTeaQualityDB(teaquality).subscribe(
       (res:any)=>{
         if(res.state){

@@ -10,7 +10,9 @@ import { AuthGuard } from './_helpers/auth.guard';
 import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.component'
 import{ PackageComponent } from './package/package.component';
 import { MetirialComponent } from './metirial/metirial.component';
-import { TeaQualityComponent } from './tea-quality/tea-quality.component'
+import { TeaQualityComponent } from './tea-quality/tea-quality.component';
+import { SupplerItemAddComponent } from './suppler-item-add/suppler-item-add.component'
+
 
 
 const routes: Routes = [
@@ -40,6 +42,11 @@ const routes: Routes = [
   { 
     path:'app-package',
     component:PackageComponent,
+    canActivate:[AuthGuard]
+  },
+  { 
+    path:'app-suppler-item-add',
+    component:SupplerItemAddComponent,
     canActivate:[AuthGuard]
   },
   { 
