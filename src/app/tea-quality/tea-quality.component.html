@@ -36,11 +36,10 @@
           <tr *ngFor="let detail of details;let i=index">
             <th scope="row">{{i+1}}</th>
             <td>{{detail.quality}}</td>
-            <td><button type="button" class="btn btn-warning" (click)="onUpdate(detail._id)">Update</button></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
+            <td><button type="button" class="btn btn-warning" (click)="onUpdate(detail)">Update</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="onDelete(detail._id)">Delete</button></td>
           </tr>
-     
-      
+
         </tbody>
       </table>
       
