@@ -37,10 +37,19 @@ export class SupplerorderService {
   getqualitydetails(){
     return this.http.get(`${this.apiUri}/TeaQuality/allteaquality`);
   }
+
+
+  DeleteTeaquality(deleteId){
+    console.log(deleteId);
+    return this.http.put(`${this.apiUri}/TeaQuality/deleteQuality`,deleteId);
+    
+  }
     
   addItemDB(item){
    
     return this.http.post(`${this.apiUri}/Item/additem`,item);
   }
+
+
 
 }

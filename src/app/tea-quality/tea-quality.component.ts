@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SupplerorderService } from '../_services/supplerorder.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tea-quality',
@@ -11,9 +12,12 @@ export class TeaQualityComponent implements OnInit {
 
   details:any;
   qualityadd:string;
+  deleteID:any;
+ 
   constructor( 
         public supplerorder:SupplerorderService,
-        private _flashMessagesService: FlashMessagesService
+        private _flashMessagesService: FlashMessagesService,
+        private router:Router
 
         ) { }
 
@@ -21,8 +25,8 @@ export class TeaQualityComponent implements OnInit {
 
     this.supplerorder.getqualitydetails().subscribe(
       data=>{
-        this.details=data['result'];
-        console.log(this.details);
+        this.details=data['result'];   
+        //console.log(this.details);
       }
     
     );
@@ -30,8 +34,19 @@ export class TeaQualityComponent implements OnInit {
 
   }
 
-  onUpdate(id){
-    console.log(id);
+  onUpdate(detail){
+    console.log(detail);
+
+  }
+
+  onDelete(_deleteID){
+
+   
+    const deletequality = {
+       deleteID:_deleteID
+    }
+    
+    this.supplerorder.DeleteTeaquality(deletequality).subscribe()
 
   }
 
@@ -47,6 +62,8 @@ export class TeaQualityComponent implements OnInit {
       (res:any)=>{
         if(res.state){
           this._flashMessagesService.show('Tea quality successfully Added !', { cssClass: 'alert-success', timeout: 2500 });
+
+          
         }
         else{
           this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 2500 });
