@@ -36,12 +36,41 @@
           <tr *ngFor="let detail of details;let i=index">
             <th scope="row">{{i+1}}</th>
             <td>{{detail.quality}}</td>
-            <td><button type="button" class="btn btn-warning" (click)="onUpdate(detail)">Update</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="onDelete(detail._id)">Delete</button></td>
+           <!-- <td><button type="button"  class="btn btn-warning"   (click)="onUpdate(detail)">Update</button></td>-->
+           <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModel" (click)="onUpdate(detail)">Update</button></td> 
+           <td><button type="button" class="btn btn-danger" (click)="onDelete(detail._id)">Delete</button></td>
           </tr>
 
         </tbody>
       </table>
+
+     
+      <div class="modal fade" id="updateModel" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" >Update Tea Quality</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Tea Quality</label>
+                  <input type="text" class="form-control"  *ngif="modeldata" value="{{modeldata.quality}}" >
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" >Update</button>
+                </div>
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
       
+   
 
 </div>
