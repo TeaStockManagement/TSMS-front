@@ -42,6 +42,10 @@ export class LoginComponent implements OnInit {
                   console.log("medRep");
                   this.router.navigateByUrl(`/rep-home`);
                 }
+                if(data['data'].role=="storeManager"){
+                  console.log("storeManager");
+                  this.router.navigateByUrl(`/nav-bar`);
+                }
               }
               if(data['data'].status=="Inactive"){
                 console.log("Not Activated");

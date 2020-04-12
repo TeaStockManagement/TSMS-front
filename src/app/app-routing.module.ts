@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RepHomeComponent } from './rep-home/rep-home.component';
-
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { AuthGuard } from './_helpers/auth.guard';
 
@@ -58,6 +58,11 @@ const routes: Routes = [
   { 
     path:'app-tea-quality',
     component:TeaQualityComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'nav-bar',
+    component: NavBarComponent,
     canActivate:[AuthGuard]
   },
 
