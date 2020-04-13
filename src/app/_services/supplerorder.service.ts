@@ -66,5 +66,8 @@ export class SupplerorderService {
   getITeaBrokerdetails(){
     return this.http.get(`${this.apiUri}/Broker/getAllBroker`);
   }
+  DeleteBroker(brokerID){
+    return this.http.put(`${this.apiUri}/Broker/deleteBroker`,brokerID);
+  }
 
 }

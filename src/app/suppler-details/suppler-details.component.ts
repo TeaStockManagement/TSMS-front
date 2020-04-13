@@ -36,12 +36,10 @@ export class SupplerDetailsComponent implements OnInit {
   });
 
   
-  this.supplerorder.getITeaBrokerdetails().subscribe(
+this.supplerorder.getITeaBrokerdetails().subscribe(
     data=>{
       this.details=data['result']; 
     });
-    (res:any)=>console.log(res);
-
   }
 
   onSubmit(){
@@ -54,17 +52,40 @@ export class SupplerDetailsComponent implements OnInit {
           this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 2500 });
         }
       });
-
+      this.brokerAddForm.reset();
+      //refresh data
       this.supplerorder.getITeaBrokerdetails().subscribe(
         data=>{
           this.details=data['result']; 
         });
-        (res:any)=>console.log(res);
 
   }
 
   
-  onDelete(_id){
+  onDelete(_deleteID){
+      
+    
+    const deleteItem = {
+      deleteID:_deleteID
+   }
+   this.supplerorder.DeleteBroker(deleteItem).subscribe(
+    (res:any)=>{
+      if(res.state){
+        this._flashMessagesService.show('Broker Delete Successfully!', { cssClass: 'alert-success', timeout: 2500 });
+      }
+      else{
+        this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 2500 });
+      }
+    }
+   );
+   
+   
+      //refresh data
+      this.supplerorder.getITeaBrokerdetails().subscribe(
+        data=>{
+          this.details=data['result']; 
+        });
+
 
   }
   onUpdate(detail){

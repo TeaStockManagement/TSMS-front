@@ -68,7 +68,7 @@ export class SupplerItemAddComponent implements OnInit {
   }
 
   onDelete(_deleteID) {
-  console.log(_deleteID);
+  
     const deleteItem = {
        deleteID:_deleteID
     }
