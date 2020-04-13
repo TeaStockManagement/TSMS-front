@@ -41,8 +41,8 @@ export class TeaQualityComponent implements OnInit {
 
   onUpdate(detail){
     console.log(detail);
-    this.modeldata = detail;
-
+    this.modeldata = detail['quality'];
+    console.log(this.modeldata);
   }
 
   onDelete(_deleteID){
