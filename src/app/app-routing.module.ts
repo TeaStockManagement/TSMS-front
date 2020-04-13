@@ -9,11 +9,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AuthGuard } from './_helpers/auth.guard';
 
 import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.component'
-import{ PackageComponent } from './package/package.component';
 import { MetirialComponent } from './metirial/metirial.component';
 import { TeaQualityComponent } from './tea-quality/tea-quality.component';
 import { SupplerItemAddComponent } from './suppler-item-add/suppler-item-add.component'
-
+import {SupplerordertabComponent} from './supplerordertab/supplerordertab.component'
+import { SupplerDetailsComponent } from './suppler-details/suppler-details.component'
 
 
 const routes: Routes = [
@@ -46,11 +46,6 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   { 
-    path:'app-package',
-    component:PackageComponent,
-    canActivate:[AuthGuard]
-  },
-  { 
     path:'app-suppler-item-add',
     component:SupplerItemAddComponent,
     canActivate:[AuthGuard]
@@ -63,6 +58,16 @@ const routes: Routes = [
   {
     path:'nav-bar',
     component: NavBarComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'supplernav',
+    component: SupplerordertabComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'supplerdetails',
+    component: SupplerDetailsComponent,
     canActivate:[AuthGuard]
   },
 

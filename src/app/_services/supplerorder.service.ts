@@ -40,7 +40,7 @@ export class SupplerorderService {
 
 
   DeleteTeaquality(deleteId){
-    console.log(deleteId);
+   
     return this.http.put(`${this.apiUri}/TeaQuality/deleteQuality`,deleteId);
     
   }
@@ -50,6 +50,21 @@ export class SupplerorderService {
     return this.http.post(`${this.apiUri}/Item/additem`,item);
   }
 
+  getItemTeadetails(){
+    return this.http.get(`${this.apiUri}/Item/getAllItem`);
+  }
 
+  DeleteTeaItem(deleteID){
+    return this.http.put(`${this.apiUri}/Item/deleteItem`,deleteID);
+  }
+
+
+  BrokerAdd(user){
+    return this.http.post(`${this.apiUri}/Broker/addbroker`,user);
+  }
+
+  getITeaBrokerdetails(){
+    return this.http.get(`${this.apiUri}/Broker/getAllBroker`);
+  }
 
 }

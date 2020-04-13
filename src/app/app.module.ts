@@ -27,14 +27,15 @@ import { RegisterComponent } from './register/register.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { RepHomeComponent } from './rep-home/rep-home.component';
-
 import { SupplerOrderAddComponent } from './suppler-order-add/suppler-order-add.component';
 import { SupplerorderService } from './_services/supplerorder.service';
-import { PackageComponent } from './package/package.component';
+
 import { MetirialComponent } from './metirial/metirial.component';
 import { TeaQualityComponent } from './tea-quality/tea-quality.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { SupplerItemAddComponent } from './suppler-item-add/suppler-item-add.component';
+import { SupplerordertabComponent } from './supplerordertab/supplerordertab.component';
+import { SupplerDetailsComponent } from './suppler-details/suppler-details.component';
 
 @NgModule({
   declarations: [
@@ -46,10 +47,11 @@ import { SupplerItemAddComponent } from './suppler-item-add/suppler-item-add.com
 
     RepHomeComponent,
     SupplerOrderAddComponent,
-    PackageComponent,
     MetirialComponent,
     TeaQualityComponent,
-    SupplerItemAddComponent
+    SupplerItemAddComponent,
+    SupplerordertabComponent,
+    SupplerDetailsComponent
   ],
   imports: [
     BrowserModule,

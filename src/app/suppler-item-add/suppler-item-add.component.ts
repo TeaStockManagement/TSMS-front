@@ -12,6 +12,8 @@ export class SupplerItemAddComponent implements OnInit {
   item:any;
   buyprice:any;
   sellprice:any;
+  details:any;
+  modeldata:any;
 
 
   constructor(
@@ -20,6 +22,13 @@ export class SupplerItemAddComponent implements OnInit {
  ) { }
 
   ngOnInit(): void {
+
+    this.supplerorder.getItemTeadetails().subscribe(
+      data=>{
+        this.details=data['result']; 
+        // console.log(this.details);
+      });
+     
   }
 
   AddItem(){
@@ -29,19 +38,50 @@ export class SupplerItemAddComponent implements OnInit {
       buyprice:this.buyprice,
       sellprice:this.sellprice
    }
-    
-this.supplerorder.addItemDB(itemadd).subscribe(
+      
+  this.supplerorder.addItemDB(itemadd).subscribe(
 
-  (res:any)=>{
-    if(res.state){
-      this._flashMessagesService.show('Tea Item successfully Added !', { cssClass: 'alert-success', timeout: 2500 });
-    }
-    else{
-      this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 2500 });
-    }
-  }
-)
+          (res:any)=>{
+            if(res.state){
+              this._flashMessagesService.show('Tea Item successfully Added !', { cssClass: 'alert-success', timeout: 2500 });
+            }
+            else{
+              this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 2500 });
+            }
+          }
+        );
+
+
+        this.supplerorder.getItemTeadetails().subscribe(
+          data=>{
+            this.details=data['result']; 
+            // console.log(this.details);
+          });   
        
   }
+
+
+  onUpdate(detail){
+    console.log(detail);
+    this.modeldata = detail;
+
+  }
+
+  onDelete(_deleteID) {
+  console.log(_deleteID);
+    const deleteItem = {
+       deleteID:_deleteID
+    }
+    this.supplerorder.DeleteTeaItem(deleteItem).subscribe();
+
+    this.supplerorder.getItemTeadetails().subscribe(
+      data=>{
+        this.details=data['result']; 
+      });   
+
+  }
+
+  
+
 
 }

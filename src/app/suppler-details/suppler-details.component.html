@@ -1,0 +1,81 @@
+<br><br>
+<div class="bg">
+    
+    <div style="margin: 0px 0px 0px 200px; padding-top: s50px;">    
+        <mat-card style="width: 800px; text-align: center; background-color: white;">
+            <flash-messages></flash-messages>
+            <mat-card-title>Broker Details Add</mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="brokerAddForm" (ngSubmit)="onSubmit()">
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Name" formControlName="name">
+                        </mat-form-field>
+                    </p>
+
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="VAT.Reg.No" formControlName="vatRegNo">
+                        </mat-form-field>
+                    </p>
+
+
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Address" formControlName="address">
+                        </mat-form-field>
+                    </p>
+
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Email" formControlName="email">
+                        </mat-form-field>
+                    </p>
+
+                    <p>
+                        <mat-form-field>
+                            <input type="number" matInput placeholder="Mobile No" formControlName="mobile">
+                        </mat-form-field>
+                    </p>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+   
+</div>
+
+
+<br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mobile Number </th>
+      <th scope="col">Email </th>
+      <th scope="col">Vat Reg No</th>
+      <th scope="col">Address</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let detail of details;let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{detail.name}}</td>
+      <td>{{detail.mobile}}</td>
+      <td>{{detail.email}}</td>
+      <td>{{detail.vatRegNo}}</td>
+      <td>{{detail.address}}</td>
+     <!-- <td><button type="button"  class="btn btn-warning"   (click)="onUpdate(detail)">Update</button></td>-->
+     <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModel" (click)="onUpdate(detail)">Update</button></td> 
+     <td><button type="button" class="btn btn-danger" (click)="onDelete(detail._id)">Delete</button></td>
+    </tr>
+
+  </tbody>
+</table>

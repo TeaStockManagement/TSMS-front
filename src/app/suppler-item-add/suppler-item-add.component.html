@@ -1,7 +1,7 @@
 
 
 <br>
-<h2 class="col-md-11 text-center"> Tea Item </h2>
+<h2 class="col-md-11 text-center"> Tea Item Add</h2>
 <br><br>
 <div class="container">
   <flash-messages></flash-messages>
@@ -14,14 +14,14 @@
         </div>  
 
         <div class="form-group row">
-          <label  class="col-sm-2 col-form-label">Buy Unit Price</label>
+          <label  class="col-sm-2 col-form-label">Buy Unit Price (Rs.)</label>
           <div class="col-sm-10">
             <input type="number" class="form-control" placeholder="50" name="buyprice" [(ngModel)]="buyprice" required>
           </div>
         </div>
 
         <div class="form-group row">
-          <label  class="col-sm-2 col-form-label">Sell Unit Price</label>
+          <label  class="col-sm-2 col-form-label">Sell Unit Price (Rs.)</label>
           <div class="col-sm-10">
             <input type="number" class="form-control" placeholder="75" name="sellprice" [(ngModel)]="sellprice" required>
           </div>
@@ -33,4 +33,31 @@
           </div>
         </div>
       </form>
+
+   <br>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item Types</th>
+            <th scope="col">Buy Unit Price </th>
+            <th scope="col">Sell Unit Price </th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detail of details;let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{detail.Item}}</td>
+            <td>{{detail.BuyUnitPrice}}</td>
+            <td>{{detail.SellUnitPrice}}</td>
+           <!-- <td><button type="button"  class="btn btn-warning"   (click)="onUpdate(detail)">Update</button></td>-->
+           <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModel" (click)="onUpdate(detail)">Update</button></td> 
+           <td><button type="button" class="btn btn-danger" (click)="onDelete(detail._id)">Delete</button></td>
+          </tr>
+
+        </tbody>
+      </table>
+
 
