@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PackageComponent } from './package.component';
+import { SupplerordertabComponent } from './supplerordertab.component';
 
-describe('PackageComponent', () => {
-  let component: PackageComponent;
-  let fixture: ComponentFixture<PackageComponent>;
+describe('SupplerordertabComponent', () => {
+  let component: SupplerordertabComponent;
+  let fixture: ComponentFixture<SupplerordertabComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PackageComponent ]
+      declarations: [ SupplerordertabComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PackageComponent);
+    fixture = TestBed.createComponent(SupplerordertabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

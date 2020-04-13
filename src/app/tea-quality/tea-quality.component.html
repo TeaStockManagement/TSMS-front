@@ -1,9 +1,10 @@
 
-
 <br>
-<h2 class="col-md-11 text-center"> Tea Quality</h2>
-<br><br>
 <div class="container">
+     
+    <br>
+<h2 class="col-md-11 text-center"> Tea Quality Add</h2>
+<br><br>
   <flash-messages></flash-messages>
     <form (submit) = "AddTeaQuality()">
         <div class="form-group row">
@@ -58,7 +59,7 @@
               <form>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Tea Quality</label>
-                  <input type="text" class="form-control"  *ngif="modeldata" value="{{modeldata.quality}}" >
+                  <input type="text" class="form-control"  value="" >
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -70,7 +71,5 @@
           </div>
         </div>
       </div>
-      
-   
-
+    
 </div>
