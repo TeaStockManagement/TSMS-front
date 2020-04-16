@@ -33,10 +33,7 @@ export class TeaQualityComponent implements OnInit {
         this.details=data['result']; 
         //console.log(this.details);
       }
-    
     );
-
-
   }
 
   onUpdate(detail){

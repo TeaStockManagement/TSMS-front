@@ -4,26 +4,63 @@
                <mat-icon>input</mat-icon>
           </button>
           <tab heading="Add Order" id="tab1">
-               <div style="width: 60%;" class="text-center">
+               <div style="width: 80%;" class="text-center">
                     <h3 class="mb-5">Add Order Details</h3>
-                    <form [formGroup]="addShopForm" (ngSubmit)="addShop()">
+                    <form [formGroup]="addShopForm">
                          <div class="form-group row">
                               <label for="colFormLabel" class="col-sm-2 col-form-label">Shop</label>
                               <div class="col-sm-10">
-                                   <select class="form-control" id="exampleFormControlSelect1">
-                                        <option *ngFor="let shop of shops">{{shop.name}}</option>
+                                   <select class="form-control " id="shopName" >
+                                        <option *ngFor="let shop of shops" >{{shop.name}}</option>
                                    </select>
                               </div>
                          </div>
                          <div class="form-group row">
                               <label for="colFormLabel" class="col-sm-2 col-form-label">Date</label>
                               <div class="col-sm-10">
-                                   <input type="text"
+                                   <input id="datePicker" type="text"
                                    class="form-control"
                                    bsDatepicker>
                               </div>
                          </div>
-                         <button type="submit" class="btn btn-primary">
+                         <div class="form-group row">
+                              <label for="colFormLabel" class="col-sm-2 col-form-label">Product</label>
+                              <div class="row ml-3">
+                                   <select class="form-control col " id="selectItem" >
+                                        <option *ngFor="let productItem of productItems">{{productItem.Item}}</option>
+                                   </select>
+                                   <div class="col">
+                                        <input type="number" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="quantity" placeholder="Quantity">
+                                   </div>
+                                   <div class="col">
+                                        <button class="btn btn-secondary" (click)='addItem(quantity)'>
+                                             ADD</button>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <table class="table">
+                                   <thead>
+                                     <tr>
+                                       <th scope="col">#</th>
+                                       <th scope="col">Product Item</th>
+                                       <th scope="col">Quantity</th>
+                                       <th scope="col">Price</th>
+                                       <th scope="col"></th>
+                                     </tr>
+                                   </thead>
+                                   <tbody>
+                                     <tr *ngFor="let item of items;let i=index ">
+                                       <th scope="row">{{i+1}}</th>
+                                       <td>{{item.itemName}}</td>
+                                       <td>{{item.quantity}}</td>
+                                       <td>{{item.price}}</td>
+                                       <td id="deleteButton"><button class="btn btn-danger btn-sm" (click)="deleteItem(item.itemName)">Delete</button></td>
+                                     </tr>
+                                   </tbody>
+                                 </table>
+                         </div>
+                         <button (click)="addOrder()" class="btn btn-primary">
                          Submit</button>
                     </form>
                </div>
@@ -57,3 +94,4 @@
           </tab>
      </tabset>
 </div>
+
