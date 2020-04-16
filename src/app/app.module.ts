@@ -36,6 +36,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { SupplerItemAddComponent } from './suppler-item-add/suppler-item-add.component';
 import { SupplerordertabComponent } from './supplerordertab/supplerordertab.component';
 import { SupplerDetailsComponent } from './suppler-details/suppler-details.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { SupplerDetailsComponent } from './suppler-details/suppler-details.compo
     MatDatepickerModule,
     TabsModule.forRoot(),
     MatDatepickerModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    MatAutocompleteModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

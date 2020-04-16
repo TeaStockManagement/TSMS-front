@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SupplerorderService } from '../_services/supplerorder.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
-import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-tea-quality',
@@ -15,13 +14,13 @@ export class TeaQualityComponent implements OnInit {
   qualityadd:string;
   deleteID:any;
   modeldata:any;
-
-
+  qualityupdate:any;
+  qualityID:any;
   
  
   constructor( 
         public supplerorder:SupplerorderService,
-        private _flashMessagesService: FlashMessagesService,
+        public _flashMessagesService: FlashMessagesService,
         private router:Router
  
         ) { }
@@ -39,56 +38,86 @@ export class TeaQualityComponent implements OnInit {
 
   }
 
+  //Set model data
   onUpdate(detail){
-    console.log(detail);
     this.modeldata = detail['quality'];
+    this.qualityID = detail['_id'];
     console.log(this.modeldata);
   }
+ 
+  //Get model data update
+ UpdateTeaModel(){
+    const teaquality = {
+      qualityupdate:this.qualityupdate,
+      qualityID:this.qualityID
+    }
 
+    this.supplerorder.updateTeaQualityDB(teaquality).subscribe(
+      (res:any)=>{
+        if(res.state){
+          this._flashMessagesService.show('Tea quality successfully Added !', { cssClass: 'alert-success', timeout: 2500 });  
+        }
+        else{
+          this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 2500 });
+        }
+      });
+      
+      //refresh data
+      this.supplerorder.getqualitydetails().subscribe(
+        data=>{
+          this.details=data['result'];
+        });
+  }
+
+  //Delete Tea Quality
   onDelete(_deleteID){
 
-   
     const deletequality = {
        deleteID:_deleteID
     }
     
-    this.supplerorder.DeleteTeaquality(deletequality).subscribe();
+    this.supplerorder.DeleteTeaquality(deletequality).subscribe(
+      (res:any)=>{
+        console.log(res);
+        if(res.state){
+          this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 5000 });
+        }
+        else{
+          this._flashMessagesService.show(res.msg, { cssClass: 'alert-danger', timeout: 2500 });
+        }
+      });
+      //refresh data
     this.supplerorder.getqualitydetails().subscribe(
       data=>{
         this.details=data['result'];   
-        //console.log(this.details);
-      }
-    
-    );
+      });
 
   }
 
+
+  //Add Tea Quality 
   AddTeaQuality(){
     
-    const teaquality = {
-        
+    const teaquality = {       
     qualityadd:this.qualityadd
-
     }
     
     this.supplerorder.addTeaQualityDB(teaquality).subscribe(
       (res:any)=>{
         if(res.state){
           this._flashMessagesService.show('Tea quality successfully Added !', { cssClass: 'alert-success', timeout: 2500 });
-          this.supplerorder.getqualitydetails().subscribe(
-            data=>{
-              this.details=data['result'];   
-              //console.log(this.details);
-            }
-          
-          );
           
         }
         else{
           this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 2500 });
         }
-      }
-    )
+      });
+      //refresh data
+      this.supplerorder.getqualitydetails().subscribe(
+        data=>{
+          this.details=data['result'];   
+          //console.log(this.details);
+        });
   }
 
 }

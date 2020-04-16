@@ -81,7 +81,4 @@ export class SupplerItemAddComponent implements OnInit {
 
   }
 
-  
-
-
 }
