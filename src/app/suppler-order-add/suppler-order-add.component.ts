@@ -22,6 +22,7 @@ export class SupplerOrderAddComponent implements OnInit {
   items=[];
   itemNo:any=0;
   mySubscription: any;
+  suppliers:any;
   constructor(private router:Router,
   private AuthenticationService:AuthenticationService,
   private formBuilder: FormBuilder,
@@ -109,6 +110,13 @@ export class SupplerOrderAddComponent implements OnInit {
     )
   }
   viewSuppler(){
-    this.supplerorderservice.getTeaBrokerdetails().subscribe()
+    this.supplerorderservice.getTeaBrokerdetails().subscribe(
+      data=>{
+        this.suppliers=data['result'];
+        console.log(this.suppliers);
+      },err=>{
+        console.log(err);
+      }
+    )
   }
 }

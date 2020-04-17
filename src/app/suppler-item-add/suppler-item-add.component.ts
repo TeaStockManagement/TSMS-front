@@ -78,8 +78,8 @@ onUpdate(){
     const teaQualityData = {
       _id:this.itemID,
       item:this.modelitem,
-      updatebuyprice:this.updatebuyprice,
-      updatesellprice:this.updatesellprice
+      updatebuyprice:this.modelbuyunitprice,
+      updatesellprice:this.modelsellunitprice
     }
     console.log(teaQualityData);
     this.supplerorder.updateTeaItem(teaQualityData).subscribe();
