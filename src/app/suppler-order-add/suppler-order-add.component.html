@@ -1,23 +1,19 @@
-<app-nav-bar></app-nav-bar>
+
 <div class="container">
-    <br><br>
-
-    <form [formGroup]="addorder" (ngSubmit)="onSubmit()">
-
-      <div class="form-group">
-        <label for="name">Package </label>
-        <input type="text" class="form-control" id="name" required>
-      </div>
-
-
-        <select formControlName="name">
-          <option disabled>Select Payment Type</option>
-          <option>Choose Payment Type</option>
-          <option *ngFor="let suit of paymenttype">{{suit}}</option>
-        </select>
-
-
-       <br>
-        <button>Submit</button>
-      </form> 
+  <br>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text"
+           placeholder="Choose Company"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option.name">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
 </div>

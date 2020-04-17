@@ -36,7 +36,7 @@ export class SupplerDetailsComponent implements OnInit {
   });
 
   
-this.supplerorder.getITeaBrokerdetails().subscribe(
+this.supplerorder.getTeaBrokerdetails().subscribe(
     data=>{
       this.details=data['result']; 
     });
@@ -54,7 +54,7 @@ this.supplerorder.getITeaBrokerdetails().subscribe(
       });
       this.brokerAddForm.reset();
       //refresh data
-      this.supplerorder.getITeaBrokerdetails().subscribe(
+      this.supplerorder.getTeaBrokerdetails().subscribe(
         data=>{
           this.details=data['result']; 
         });
@@ -81,7 +81,7 @@ this.supplerorder.getITeaBrokerdetails().subscribe(
    
    
       //refresh data
-      this.supplerorder.getITeaBrokerdetails().subscribe(
+      this.supplerorder.getTeaBrokerdetails().subscribe(
         data=>{
           this.details=data['result']; 
         });

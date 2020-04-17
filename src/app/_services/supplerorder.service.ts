@@ -23,14 +23,25 @@ export class SupplerorderService {
      return this.http.post(`${this.apiUri}/metirial/addmetiral`,metirialobj);  
   }
 
+
+  //Order Details
    getaddorderdata(){
       
       this.fetchToken();
    }
 
+
+
+   //Tea Quality
   addTeaQualityDB(teaquality){
     
     return this.http.post(`${this.apiUri}/TeaQuality/addteaquality`,teaquality);
+
+  }
+
+  updateTeaQualityDB(teaquality){
+ 
+    return this.http.post(`${this.apiUri}/TeaQuality/updateTeaQuality`,teaquality);
 
   }
 
@@ -41,9 +52,11 @@ export class SupplerorderService {
 
   DeleteTeaquality(deleteId){
    
-    return this.http.put(`${this.apiUri}/TeaQuality/deleteQuality`,deleteId);
+    return this.http.post(`${this.apiUri}/TeaQuality/deleteQuality`,deleteId);
     
   }
+
+  //Tea Item 
     
   addItemDB(item){
    
@@ -58,12 +71,18 @@ export class SupplerorderService {
     return this.http.put(`${this.apiUri}/Item/deleteItem`,deleteID);
   }
 
+  updateTeaItem(item){
+    console.log(item);
+    return this.http.post(`${this.apiUri}/Item/updateItem`,item);
+  }
+
+  //Broker Details 
 
   BrokerAdd(user){
     return this.http.post(`${this.apiUri}/Broker/addbroker`,user);
   }
 
-  getITeaBrokerdetails(){
+  getTeaBrokerdetails(){
     return this.http.get(`${this.apiUri}/Broker/getAllBroker`);
   }
   DeleteBroker(brokerID){
