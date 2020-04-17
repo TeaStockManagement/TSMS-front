@@ -70,11 +70,7 @@ const routes: Routes = [
     component: SupplerDetailsComponent,
     canActivate:[AuthGuard]
   },
-  {
-     path:'app-suppler-order-add',
-     component:SupplerOrderAddComponent,
-     canActivate:[AuthGuard]
-  },
+  
 
   { path: '**', redirectTo: ''}
   
