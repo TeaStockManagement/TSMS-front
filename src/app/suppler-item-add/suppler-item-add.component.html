@@ -73,15 +73,15 @@
               <form (submit) = "onUpdate()">
                 <div class="form-group">
                   <label  class="col-form-label">Tea Item:</label>
-                  <input type="text" class="form-control"  value="{{modelitem}}" name="item" [(ngModel)]="item">
+                  <input type="text" class="form-control"  value="{{modelitem}}" name="item" [(ngModel)]="modelitem">
                 </div>
                 <div class="form-group">
                   <label  class="col-form-label">Buy Unit Price (Rs.):</label>
-                  <input type="number" class="form-control"  value="{{modelbuyunitprice}}" name="updatebuyprice" [(ngModel)]="updatebuyprice">
+                  <input type="number" class="form-control"  value="{{modelbuyunitprice}}" name="updatebuyprice" [(ngModel)]="modelbuyunitprice">
                 </div>
                 <div class="form-group">
                   <label  class="col-form-label">Sell Unit Price (Rs.):</label>
-                  <input type="number" class="form-control"  value="{{modelsellunitprice}}" name="updatesellprice" [(ngModel)]="updatesellprice">
+                  <input type="number" class="form-control"  value="{{modelsellunitprice}}" name="updatesellprice" [(ngModel)]="modelsellunitprice">
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
