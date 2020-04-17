@@ -60,7 +60,6 @@
       <th scope="col">Email </th>
       <th scope="col">Vat Reg No</th>
       <th scope="col">Address</th>
-      <th scope="col">Update</th>
       <th scope="col">Delete</th>
     </tr>
   </thead>
@@ -73,9 +72,10 @@
       <td>{{detail.vatRegNo}}</td>
       <td>{{detail.address}}</td>
      <!-- <td><button type="button"  class="btn btn-warning"   (click)="onUpdate(detail)">Update</button></td>-->
-     <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModel" (click)="onUpdate(detail)">Update</button></td> 
      <td><button type="button" class="btn btn-danger" (click)="onDelete(detail._id)">Delete</button></td>
     </tr>
 
   </tbody>
 </table>
+
+

@@ -13,7 +13,12 @@ export class SupplerItemAddComponent implements OnInit {
   buyprice:any;
   sellprice:any;
   details:any;
-  modeldata:any;
+  modelitem:any;
+  modelbuyunitprice:any;
+  modelsellunitprice:any;
+  itemID:any;
+  updatebuyprice:any;
+  updatesellprice:any;
 
 
   constructor(
@@ -32,13 +37,12 @@ export class SupplerItemAddComponent implements OnInit {
   }
 
   AddItem(){
-
    const itemadd  = {
       item:this.item,
       buyprice:this.buyprice,
       sellprice:this.sellprice
    }
-      
+  
   this.supplerorder.addItemDB(itemadd).subscribe(
 
           (res:any)=>{
@@ -50,22 +54,43 @@ export class SupplerItemAddComponent implements OnInit {
             }
           }
         );
-
-
-        this.supplerorder.getItemTeadetails().subscribe(
-          data=>{
-            this.details=data['result']; 
-            // console.log(this.details);
-          });   
+      //refresh data
+      this.supplerorder.getItemTeadetails().subscribe(
+        data=>{
+          this.details=data['result']; 
+          // console.log(this.details);
+        });   
        
   }
 
+//Set model data
+UpdateItemModel(detail){
+  this.modelitem = detail['Item'];
+  this.modelbuyunitprice = detail['BuyUnitPrice'];
+  this.modelsellunitprice = detail['SellUnitPrice'];
+  this.itemID = detail['_id'];
+ // console.log(this.modeldata);
+ 
+}
 
-  onUpdate(detail){
-    console.log(detail);
-    this.modeldata = detail;
+onUpdate(){
+   
+    const teaQualityData = {
+      _id:this.itemID,
+      item:this.item,
+      updatebuyprice:this.updatebuyprice,
+      updatesellprice:this.updatesellprice
+    }
+    this.supplerorder.updateTeaItem(teaQualityData).subscribe();
 
-  }
+     //refresh data
+     this.supplerorder.getItemTeadetails().subscribe(
+      data=>{
+        this.details=data['result']; 
+        // console.log(this.details);
+      });   
+    
+}
 
   onDelete(_deleteID) {
   

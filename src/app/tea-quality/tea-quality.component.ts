@@ -28,21 +28,18 @@ export class TeaQualityComponent implements OnInit {
   ngOnInit(): void {
 
     this.supplerorder.getqualitydetails().subscribe(
+     
       data=>{
         this.details=data['result']; 
-        //console.log(this.details);
-      }
-    
-    );
-
-
+      });
   }
 
   //Set model data
   onUpdate(detail){
     this.modeldata = detail['quality'];
     this.qualityID = detail['_id'];
-    console.log(this.modeldata);
+   // console.log(this.modeldata);
+    //console.log(this.qualityID);
   }
  
   //Get model data update
@@ -51,7 +48,7 @@ export class TeaQualityComponent implements OnInit {
       qualityupdate:this.qualityupdate,
       qualityID:this.qualityID
     }
-
+ 
     this.supplerorder.updateTeaQualityDB(teaquality).subscribe(
       (res:any)=>{
         if(res.state){
@@ -104,13 +101,13 @@ export class TeaQualityComponent implements OnInit {
     
     this.supplerorder.addTeaQualityDB(teaquality).subscribe(
       (res:any)=>{
-        if(res.state){
-          this._flashMessagesService.show('Tea quality successfully Added !', { cssClass: 'alert-success', timeout: 2500 });
-          
-        }
-        else{
-          this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 2500 });
-        }
+       // console.log(res.state);
+          if(res.state){
+            this._flashMessagesService.show('Tea quality successfully Added !', { cssClass: 'alert-success', timeout: 2500 });      
+          }
+          else{
+           this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 2500 });
+         }
       });
       //refresh data
       this.supplerorder.getqualitydetails().subscribe(

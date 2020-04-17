@@ -40,6 +40,7 @@ export class SupplerorderService {
   }
 
   updateTeaQualityDB(teaquality){
+ 
     return this.http.post(`${this.apiUri}/TeaQuality/updateTeaQuality`,teaquality);
 
   }
@@ -68,6 +69,11 @@ export class SupplerorderService {
 
   DeleteTeaItem(deleteID){
     return this.http.put(`${this.apiUri}/Item/deleteItem`,deleteID);
+  }
+
+  updateTeaItem(item){
+    console.log(item);
+    return this.http.post(`${this.apiUri}/Item/updateItem`,item);
   }
 
   //Broker Details 
