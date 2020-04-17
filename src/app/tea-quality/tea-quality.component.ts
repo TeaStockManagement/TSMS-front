@@ -28,9 +28,8 @@ export class TeaQualityComponent implements OnInit {
   ngOnInit(): void {
 
     this.supplerorder.getqualitydetails().subscribe(
-     
       data=>{
-        this.details=data['result']; 
+        this.details=data['result'];
       });
   }
 

@@ -16,4 +16,8 @@ export class RepService {
   registerShop(shop){
     return this.http.post(`${this.apiUri}/shops/add`,shop);
   }
+
+  addOrder(order){
+    return this.http.post(`${this.apiUri}/orders/add`,order);
+  }
 }
