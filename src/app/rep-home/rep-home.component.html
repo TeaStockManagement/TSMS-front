@@ -1,36 +1,36 @@
 <div style="margin: 0px 150px 0px 150px;">
      <tabset>
-          <button style="margin: 20px 0px 0px 1000px;" type="submit" (click)="logOut()" class="btn btn-secondary btn-sm">
+          <button style="margin: 20px 0px 0px 1000px;" type="submit" (click)="logOut()"
+               class="btn btn-secondary btn-sm">
                <mat-icon>input</mat-icon>
           </button>
-          <tab heading="Add Order" id="tab1">
+          <tab heading="Add Order" id="tab1" click="testClick()">
                <div style="width: 80%;" class="text-center">
                     <h3 class="mb-5">Add Order Details</h3>
                     <form [formGroup]="addShopForm">
                          <div class="form-group row">
                               <label for="colFormLabel" class="col-sm-2 col-form-label">Shop</label>
                               <div class="col-sm-10">
-                                   <select class="form-control " id="shopName" >
-                                        <option *ngFor="let shop of shops" >{{shop.name}}</option>
+                                   <select class="form-control " id="shopName">
+                                        <option *ngFor="let shop of shops">{{shop.name}}</option>
                                    </select>
                               </div>
                          </div>
                          <div class="form-group row">
                               <label for="colFormLabel" class="col-sm-2 col-form-label">Date</label>
                               <div class="col-sm-10">
-                                   <input id="datePicker" type="text"
-                                   class="form-control"
-                                   bsDatepicker>
+                                   <input id="datePicker" type="text" class="form-control" bsDatepicker>
                               </div>
                          </div>
                          <div class="form-group row">
                               <label for="colFormLabel" class="col-sm-2 col-form-label">Product</label>
                               <div class="row ml-3">
-                                   <select class="form-control col " id="selectItem" >
+                                   <select class="form-control col " id="selectItem">
                                         <option *ngFor="let productItem of productItems">{{productItem.Item}}</option>
                                    </select>
                                    <div class="col">
-                                        <input type="number" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="quantity" placeholder="Quantity">
+                                        <input type="number" [ngModelOptions]="{standalone: true}" class="form-control"
+                                             [(ngModel)]="quantity" placeholder="Quantity">
                                    </div>
                                    <div class="col">
                                         <button class="btn btn-secondary" (click)='addItem(quantity)'>
@@ -41,27 +41,61 @@
                          <div class="form-group">
                               <table class="table">
                                    <thead>
-                                     <tr>
-                                       <th scope="col">#</th>
-                                       <th scope="col">Product Item</th>
-                                       <th scope="col">Quantity</th>
-                                       <th scope="col">Price</th>
-                                       <th scope="col"></th>
-                                     </tr>
+                                        <tr>
+                                             <th scope="col">#</th>
+                                             <th scope="col">Product Item</th>
+                                             <th scope="col">Quantity</th>
+                                             <th scope="col">Price</th>
+                                             <th scope="col"></th>
+                                        </tr>
                                    </thead>
                                    <tbody>
-                                     <tr *ngFor="let item of items;let i=index ">
-                                       <th scope="row">{{i+1}}</th>
-                                       <td>{{item.itemName}}</td>
-                                       <td>{{item.quantity}}</td>
-                                       <td>{{item.price}}</td>
-                                       <td id="deleteButton"><button class="btn btn-danger btn-sm" (click)="deleteItem(item.itemName)">Delete</button></td>
-                                     </tr>
+                                        <tr *ngFor="let item of items;let i=index ">
+                                             <th scope="row">{{i+1}}</th>
+                                             <td>{{item.itemName}}</td>
+                                             <td>{{item.quantity}}</td>
+                                             <td>{{item.price}}</td>
+                                             <td id="deleteButton"><button class="btn btn-danger btn-sm"
+                                                       (click)="deleteItem(item.itemName)">Delete</button></td>
+                                        </tr>
                                    </tbody>
-                                 </table>
+                              </table>
+                         </div>
+                         <div class="form-group row mt-5">
+                              <label for="colFormLabel" class="col-sm-2 col-form-label">Total Amount</label>
+                              <div class="col-sm-10">
+                                   <input class="form-control" type="text" value="{{billTotal}}" disabled>
+                              </div>
+                         </div>
+                         <div class="form-group row">
+                              <label for="colFormLabel" class="col-sm-2 col-form-label">Payment Type</label>
+                              <div class="form-check form-check-inline ml-3">
+                                   <input id="check1" class="form-check-input" type="checkbox" (change)="toggleVisibilityCash($event)" value="option1">
+                                   <label class="form-check-label" for="inlineCheckbox1">Cash</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                   <input id="check2" class="form-check-input" type="checkbox" (change)="toggleVisibilityCheque($event)" value="option2">
+                                   <label class="form-check-label" for="inlineCheckbox2">Cheque</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                   <input id="check3" class="form-check-input" type="checkbox" (change)="toggleVisibilityCredit($event)" value="option3">
+                                   <label class="form-check-label" for="inlineCheckbox3">Credit</label>
+                              </div>
+                         </div>
+                         <div class="form-group row " >
+                              <label for="colFormLabel" class="col-sm-2 col-form-label"></label>
+                              <div class="mr-2 ml-3" *ngIf="markedCash">
+                                   <input id="cashType" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}" [(ngModel)]="cashAmount" type="text" placeholder="Cash Amount">
+                              </div>
+                              <div class="mr-2" *ngIf="markedCheque">
+                                   <input id="chequeType" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}" [(ngModel)]="chequeAmount" type="text" placeholder="Cheque Amount">
+                              </div>
+                              <div *ngIf="markedCredit">
+                                   <input id="creditType" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}" [(ngModel)]="creditAmount" type="text" placeholder="Credit Amount">
+                              </div>
                          </div>
                          <button (click)="addOrder()" class="btn btn-primary">
-                         Submit</button>
+                              Submit</button>
                     </form>
                </div>
           </tab>
@@ -88,10 +122,12 @@
                               </div>
                          </div>
                          <button type="submit" class="btn btn-primary">
-                         Submit</button>
+                              Submit</button>
                     </form>
                </div>
           </tab>
+          <tab heading="My orders">
+               <app-rep-orders></app-rep-orders>
+          </tab>
      </tabset>
 </div>
-
