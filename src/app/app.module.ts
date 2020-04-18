@@ -37,6 +37,7 @@ import { SupplerItemAddComponent } from './suppler-item-add/suppler-item-add.com
 import { SupplerordertabComponent } from './supplerordertab/supplerordertab.component';
 import { SupplerDetailsComponent } from './suppler-details/suppler-details.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { RepOrdersComponent } from './rep-orders/rep-orders.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     TeaQualityComponent,
     SupplerItemAddComponent,
     SupplerordertabComponent,
-    SupplerDetailsComponent
+    SupplerDetailsComponent,
+    RepOrdersComponent
   ],
   imports: [
     BrowserModule,
