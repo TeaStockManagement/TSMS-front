@@ -102,7 +102,7 @@ export class SupplerOrderAddComponent implements OnInit {
     this.repservice.addOrder(order).subscribe(
       data=>{
         console.log(data);
-        this.router.navigateByUrl(`/rep-home`)
+        this.router.navigateByUrl(`addsupplerorder`)
       },err=>{
         console.log(err);
         

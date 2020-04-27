@@ -46,10 +46,10 @@ this.supplerorder.getTeaBrokerdetails().subscribe(
      this.supplerorder.BrokerAdd(this.brokerAddForm.value).subscribe(
       (res:any)=>{
         if(res.state){
-          this._flashMessagesService.show('Tea Item successfully Added !', { cssClass: 'alert-success', timeout: 2500 });
+          this._flashMessagesService.show('Tea Item successfully Added !', { cssClass: 'alert-success', timeout: 5000 });
         }
         else{
-          this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 2500 });
+          this._flashMessagesService.show(res.msg, { cssClass: 'alert-success', timeout: 5000 });
         }
       });
       this.brokerAddForm.reset();
